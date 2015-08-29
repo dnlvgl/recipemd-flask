@@ -56,7 +56,7 @@ def getData(url):
     try:
         page = requests.get(url)
     except Exception:
-        return('Error: No valid URL')
+        return('Error: Enter a valid URL')
     soup = BeautifulSoup(page.text, "html5lib")
 
     if url.startswith('http://www.chefkoch.de/'):
@@ -64,4 +64,4 @@ def getData(url):
     elif url.startswith('http://allrecipes.com/'):
         return allrecipes(soup)
     else:
-        print ('Error:  Website not supported')
+        return 'Error:  Website not supported'
