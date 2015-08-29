@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <form action="." method="POST">
+                <input type="text" name="url">
+                <input type="submit" name="url-form" value="Send">
+            </form>
+            <hr>
+            <div style="font-family: monospace;">
+                {% if recipeTitle %}
+                    <p># {{ recipeTitle }}</p>
+                    <p>## Zutaten:</p>
+                    <p>
+                        {% for ingred in recipeIngreds %}
+                            &nbsp;&nbsp;{{ ingred }} <br>
+                        {% endfor %}
+                    </p>
+                    <p>## Zubereitung:</p>
+                    <p> {{ recipeInstruct }}</p>
+                {% elif Error %}    
+                    <p>{{ Error }}</p>
+                {% else%}
+                    <p>Hi</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
