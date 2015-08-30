@@ -26,6 +26,7 @@ def chefkoch(soup):
     # instructions
     instruct = soup.find('div', attrs={'id': 'rezept-zubereitung'}).text  # only get text
     instruct = instruct.strip()  # remove leadin and ending whitespace
+    instruct = instruct.splitlines() # split into list to remove newlines
     # return tuple
     recipeData = (title, ingreds, instruct)
     return recipeData
@@ -46,7 +47,6 @@ def allrecipes(soup):
     # instructions
     instruct = soup.find('div', attrs={'class': 'directLeft'})
     instruct = [s.getText().strip() for s in instruct.findAll('li')]
-    instruct = '\n\n'.join(instruct)
     # return tuple
     recipeData = (title, ingreds, instruct)
     return recipeData

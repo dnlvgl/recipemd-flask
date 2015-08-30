@@ -6,7 +6,7 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
+.content,
 .footer {
   padding-right: 15px;
   padding-left: 15px;
@@ -51,7 +51,7 @@ body {
   font-size: 21px;
 }
 .jumbotron p {
-    font-size: 12px;
+    font-size: 12px !important;
     font-weight: normal;
     margin-bottom: 15px;
 }
@@ -60,8 +60,11 @@ body {
 .content {
   margin-bottom: 40px;
 }
-.content p + h4 {
+.content p + h2 {
   margin-top: 28px;
+}
+.content p {
+  font-size: 18px;
 }
 
 /* Responsive: Portrait tablets and up */
