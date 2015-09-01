@@ -51,6 +51,23 @@ def allrecipes(soup):
     recipeData = (title, ingreds, instruct)
     return recipeData
 
+def foodnetwork(soup):
+    try:
+        checkRecipe = soup.find('div', attrs={'itemprop': 'recipeInstructions'}).text
+    except Exception:
+        return('Error: No recipe found, check URL')
+    # title
+    title = soup.find('h1', attrs={'itemprop': 'name'}).text
+    # ingredients
+    ingreds = soup.find('div', attrs={'class': 'ingredients'})
+    ingreds = ['- ' + s.getText().strip() for s in ingreds.findAll('li')]
+    # instructions
+    instruct = soup.find('div', attrs={'itemprop': 'recipeInstructions'})
+    instruct = [s.getText().strip() for s in instruct.findAll('p')]
+    # return tuple
+    recipeData = (title, ingreds, instruct)
+    return recipeData
+
 
 def getData(url):
     try:
@@ -63,5 +80,7 @@ def getData(url):
         return chefkoch(soup)
     elif url.startswith('http://allrecipes.com/'):
         return allrecipes(soup)
+    elif url.startswith('http://www.foodnetwork.com/recipes/'):
+        return foodnetwork(soup)
     else:
         return 'Error:  Website not supported'
