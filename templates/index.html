@@ -24,9 +24,9 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <!-- <li role="presentation" class="active"><a href="#">Home</a></li> -->
-            <li role="presentation"><a href="#home">Home</a></li> 
-            <li role="presentation"><a href="#sites">Supported sites</a></li>
-            <li role="presentation"><a href="#about">About</a></li>
+            <li role="presentation"><a href="#home">{{ gettext('Home') }}</a></li> 
+            <li role="presentation"><a href="#sites">{{ gettext('Supported sites') }}</a></li>
+            <li role="presentation"><a href="#about">{{ gettext('About') }}</a></li>
           </ul>
         </nav>
         <h3 class="text-muted" id="home">recipe.md</h3>
@@ -35,7 +35,7 @@
       <div class="row content">
 
         <noscript>
-            <div id="noscript" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please enable JavaScript for full functionality.</div>
+            <div id="noscript" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>{{ gettext('Please enable JavaScript for full functionality.') }}</div>
         </noscript>
 
         <div class="col-lg-12">
@@ -56,13 +56,13 @@
             <div class="jumbotron content">
                 <div id="recipe" class="text-left">
                     <p># {{ recipeTitle }}</p>
-                    <p>## Zutaten:</p>
+                    <p>{{ gettext('## Ingredients:') }}</p>
                     <p>
                         {% for ingred in recipeIngreds %}
                             &nbsp;&nbsp;{{ ingred }} <br>
                         {% endfor %}
                     </p>
-                    <p>## Zubereitung:</p>
+                    <p>{{ gettext('## Directions:') }}</p>
                     <p>
                         {% for instruct in recipeInstruct %}
                                 {{ instruct }} <br>
@@ -89,14 +89,14 @@
                 {% else%}
                 <div class="row content">
                     <div class="col-lg-12">
-                        <p class="lead">Convert an recipe from the <a href="#sites">supported sites</a> to Markdown.</p>
-                        <p class="lead">Enter an url and press "Submit"</p>
+                        <p class="lead">{{ gettext('Convert an recipe from the <a href="#sites">supported sites</a> to Markdown.') }}</p>
+                        <p class="lead">{{ gettext('Enter an url and press "Submit"') }}</p>
                     </div>
                 </div>
                 {% endif %}
 
         <div class="col-lg-12">
-          <h2 id="sites">Supported sites</h2>
+          <h2 id="sites">{{ gettext('Supported sites') }}</h2>
             <ol>
               <li><a href="http://allrecipes.com/" target="_blank">allrecipes.com</a></li>
               <li><a href="http://www.chefkoch.de/" target="_blank">chefkoch.de</a></li>
@@ -106,9 +106,9 @@
 
       <div class="row content">
         <div class="col-lg-12">
-          <h2 id="about">About</h2>
-          <p>Want to save recipes from a website? Don't want to convert them to markdown by hand? recipe.md lets you save recipes as markdwown files easily.</p>
-          <p>If something is broken: <span id="adress"></span></p> <!-- mailadress in base 64 and convert with javascript -->
+          <h2 id="about">{{ gettext('About') }}</h2>
+          <p>{{ gettext('Want to save recipes from a website? Want to convert them to markdown automatically? recipe.md lets you save recipes as markdwown files easily.') }}</p>
+          <p>{{ gettext('If something is broken:') }} <span id="adress"></span></p> <!-- mailadress in base 64 and convert with javascript -->
             <script>
                 document.getElementById("adress").innerHTML = window.atob("PGEgaHJlZj0ibWFpbHRvOmhlbGxvQGRubHZnbC5jb20iPmxldCBtZSBrbm93PC9hPg==");
             </script>
@@ -137,7 +137,6 @@
 
             return textFile;
           };
-
           var recipeTitle = "{{ recipeTitle }}";
           var recipeIngreds = ({{ recipeIngreds|tojson }});
           // convert array to string; join on newlines newlines
@@ -146,7 +145,7 @@
           // convert array to string; join on newlines
           var rIns = recipeInstruct.join("\n");
           var link = document.getElementById("downloadlink");
-          link.href = makeTextFile("# " + recipeTitle + "\n\n## Zutaten:\n\n" + rIng + "\n\n## Zubereitung:\n\n" + rIns);
+          link.href = makeTextFile("# " + recipeTitle + "\n\n{{ gettext('## Ingredients:') }}\n\n" + rIng + "\n\n{{ gettext('## Directions:') }}\n\n" + rIns);
         })();
     </script>
 {% endif %}

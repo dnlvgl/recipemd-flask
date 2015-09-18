@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request
+from flask.ext.babelex import Babel
 import scraper
-app = Flask(__name__)
 
+app = Flask(__name__)
+babel = Babel(app)
 
 @app.route('/')
 def index():
