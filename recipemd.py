@@ -6,7 +6,14 @@ from flask.ext.babelex import Babel
 import scraper
 
 app = Flask(__name__)
+app.config.from_pyfile('config.py')
 babel = Babel(app)
+
+# choose best matching locale for babel translation
+# available translations list in config
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
 
 @app.route('/')
 def index():

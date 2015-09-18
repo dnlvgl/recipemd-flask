@@ -2,7 +2,7 @@
 
 create pot file:
 
-`pybabel extract -F babel.cfg -o messages.pot templates/`
+`pybabel extract -F babel.cfg -o messages.pot .`
 
 add language and create po file:
 
