@@ -41,7 +41,7 @@
         <div class="col-lg-12">
             <form action="." method="POST">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="inputUrl" name="url" placeholder="Enter url">
+                    <input type="text" class="form-control" id="inputUrl" name="url" placeholder="{{ gettext('Enter URL of recipe') }}">
                     <span class="input-group-btn">
                         <input class="btn btn-primary" type="submit" name="url-form" value="Submit">
                     </span>
@@ -90,7 +90,7 @@
                 <div class="row content">
                     <div class="col-lg-12">
                         <p class="lead">{{ gettext('Convert an recipe from the <a href="#sites">supported sites</a> to Markdown.') }}</p>
-                        <p class="lead">{{ gettext('Enter an url and press "Submit"') }}</p>
+                        <p class="lead">{{ gettext('Enter an URL and press "Submit"') }}</p>
                     </div>
                 </div>
                 {% endif %}
@@ -107,10 +107,10 @@
       <div class="row content">
         <div class="col-lg-12">
           <h2 id="about">{{ gettext('About') }}</h2>
-          <p>{{ gettext('Want to save recipes from a website? Want to convert them to markdown automatically? recipe.md lets you save recipes as markdwown files easily.') }}</p>
+          <p>{{ gettext('Want to save recipes from a website? Want to convert them to Markdown automatically? recipe.md lets you save recipes as Markdwown files easily.') }}</p>
           <p>{{ gettext('If something is broken:') }} <span id="adress"></span></p> <!-- mailadress in base 64 and convert with javascript -->
             <script>
-                document.getElementById("adress").innerHTML = window.atob("PGEgaHJlZj0ibWFpbHRvOmhlbGxvQGRubHZnbC5jb20iPmxldCBtZSBrbm93PC9hPg==");
+                {{ gettext('document.getElementById("adress").innerHTML = window.atob("PGEgaHJlZj0ibWFpbHRvOmhlbGxvQGRubHZnbC5jb20iPmxldCBtZSBrbm93PC9hPg==");') }}
             </script>
         </div>
       </div>

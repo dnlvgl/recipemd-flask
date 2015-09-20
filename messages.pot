@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 18:44+0200\n"
+"POT-Creation-Date: 2015-09-20 17:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr ""
 msgid "Please enable JavaScript for full functionality."
 msgstr ""
 
+#: templates/index.html:44
+msgid "Enter URL of recipe"
+msgstr ""
+
 #: templates/index.html:59 templates/index.html:148
 msgid "## Ingredients:"
 msgstr ""
@@ -48,16 +52,22 @@ msgid ""
 msgstr ""
 
 #: templates/index.html:93
-msgid "Enter an url and press \"Submit\""
+msgid "Enter an URL and press \"Submit\""
 msgstr ""
 
 #: templates/index.html:110
 msgid ""
-"Want to save recipes from a website? Want to convert them to markdown "
-"automatically? recipe.md lets you save recipes as markdwown files easily."
+"Want to save recipes from a website? Want to convert them to Markdown "
+"automatically? recipe.md lets you save recipes as Markdwown files easily."
 msgstr ""
 
 #: templates/index.html:111
 msgid "If something is broken:"
+msgstr ""
+
+#: templates/index.html:113
+msgid ""
+"document.getElementById(\"adress\").innerHTML = "
+"window.atob(\"PGEgaHJlZj0ibWFpbHRvOmhlbGxvQGRubHZnbC5jb20iPmxldCBtZSBrbm93PC9hPg==\");"
 msgstr ""
 
