@@ -34,18 +34,18 @@ def chefkoch(soup):
 
 def allrecipes(soup):
     try:
-        checkRecipe = soup.find('div', attrs={'id': 'zoneRecipe'}).text
+        checkRecipe = soup.find('ul', attrs={'class': 'list-ingredients-1'}).text
     except Exception:
         return('Error: No recipe found, check URL')
     # title
-    title = soup.find('h1', attrs={'id': 'itemTitle'}).text
+    title = soup.find('h1', attrs={'class': 'recipe-summary__h1'}).text
     # ingredients
-    ingreds = soup.find('div', attrs={'class': 'ingred-left'})
-    ingreds = [s.getText().strip() for s in ingreds.findAll('li')]
+    ingreds = soup.find('ul', attrs={'class': 'list-ingredients-1'})
+    ingreds = [s.getText().strip() for s in ingreds.findAll('span')]
     ingreds = ['- ' + s.replace('\n', ' ') for s in ingreds]  # add dash + remove newlines
     ingreds = [" ".join(s.split()) for s in ingreds]  # remove whitespace
     # instructions
-    instruct = soup.find('div', attrs={'class': 'directLeft'})
+    instruct = soup.find('ol', attrs={'class': 'recipe-directions__list'})
     instruct = [s.getText().strip() for s in instruct.findAll('li')]
     # return tuple
     recipeData = (title, ingreds, instruct)
