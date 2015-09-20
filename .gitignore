@@ -1,8 +1,11 @@
 # virtualenv
-.Python
 bin
 lib
 include
+local
+
+# openshift
+.openshift.
 
 # python
 *.pyc
