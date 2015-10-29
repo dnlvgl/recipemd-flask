@@ -41,13 +41,14 @@ def allrecipes(soup):
     title = soup.find('h1', attrs={'class': 'recipe-summary__h1'}).text
     # ingredients
     def find_ingreds(ingred):
+        # TODO sane variable names
         ingreds = soup.find('ul', attrs={'class': ingred})
         ingreds = [s.getText().strip() for s in ingreds.findAll('span')]
         ingreds = ['- ' + s.replace('\n', ' ') for s in ingreds]  # add dash + remove newlines
         ingreds = [" ".join(s.split()) for s in ingreds]  # remove whitespace
+        ingreds = ingreds[:-1] # delete "Add all ingredients to list"
         return ingreds
     ingreds = find_ingreds('list-ingredients-1') + find_ingreds('list-ingredients-2')
-    
     # instructions
     instruct = soup.find('ol', attrs={'class': 'recipe-directions__list'})
     instruct = [s.getText().strip() for s in instruct.findAll('li')]
