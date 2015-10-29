@@ -40,10 +40,14 @@ def allrecipes(soup):
     # title
     title = soup.find('h1', attrs={'class': 'recipe-summary__h1'}).text
     # ingredients
-    ingreds = soup.find('ul', attrs={'class': 'list-ingredients-1'})
-    ingreds = [s.getText().strip() for s in ingreds.findAll('span')]
-    ingreds = ['- ' + s.replace('\n', ' ') for s in ingreds]  # add dash + remove newlines
-    ingreds = [" ".join(s.split()) for s in ingreds]  # remove whitespace
+    def find_ingreds(ingred):
+        ingreds = soup.find('ul', attrs={'class': ingred})
+        ingreds = [s.getText().strip() for s in ingreds.findAll('span')]
+        ingreds = ['- ' + s.replace('\n', ' ') for s in ingreds]  # add dash + remove newlines
+        ingreds = [" ".join(s.split()) for s in ingreds]  # remove whitespace
+        return ingreds
+    ingreds = find_ingreds('list-ingredients-1') + find_ingreds('list-ingredients-2')
+    
     # instructions
     instruct = soup.find('ol', attrs={'class': 'recipe-directions__list'})
     instruct = [s.getText().strip() for s in instruct.findAll('li')]
