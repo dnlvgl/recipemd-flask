@@ -42,8 +42,8 @@ def allrecipes(soup):
     # ingredients
     def find_ingreds(ingred):
         # TODO sane variable names
-        ingreds = soup.find('ul', attrs={'class': ingred})
-        ingreds = [s.getText().strip() for s in ingreds.findAll('span')]
+        ingreds = soup.find('ul', attrs={'class': 'checklist'})
+        ingreds = [s.getText().strip() for s in ingreds.findAll(True, {"class": "recipe-ingred_txt"})]
         ingreds = ['- ' + s.replace('\n', ' ') for s in ingreds]  # add dash + remove newlines
         ingreds = [" ".join(s.split()) for s in ingreds]  # remove whitespace
         ingreds = ingreds[:-1] # delete "Add all ingredients to list"

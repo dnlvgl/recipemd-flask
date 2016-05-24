@@ -100,7 +100,7 @@
             <ul class="list-unstyled">
               <li><img src="static/img/icon-allrecipes16.png"><a href="http://allrecipes.com/" target="_blank"> allrecipes.com</a></li>
               <li><img src="static/img/icon-chefkoch16.png"><a href="http://www.chefkoch.de/" target="_blank"> chefkoch.de</a></li>
-              <li><img src="static/img/icon-foodnetwork16.png"><a href="http://www.foodnetwork.com/recipes.html" target="_blank"> foodnetwork.com</a></li>
+              <!--<li><img src="static/img/icon-foodnetwork16.png"><a href="http://www.foodnetwork.com/recipes.html" target="_blank"> foodnetwork.com</a></li>-->
             </ul>
         </div>
 
@@ -145,7 +145,7 @@
           // convert array to string; join on newlines
           var rIns = recipeInstruct.join("\n");
           var link = document.getElementById("downloadlink");
-          link.href = makeTextFile("# " + recipeTitle + "\n\n{{ gettext('## Ingredients:') }}\n\n" + rIng + "\n\n{{ gettext('## Directions:') }}\n\n" + rIns);
+          link.href = makeTextFile("# " + recipeTitle + "\n\n{{ gettext('## Ingredients:') }}\n\n" + rIng + "\n\n{{ gettext('## Directions:') }}\n\n" + rIns); // change to '/r/n' ?
         })();
     </script>
 {% endif %}
