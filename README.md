@@ -5,12 +5,6 @@ using the micro framework [Flask](http://flask.pocoo.org/).
 
 It's configured to run on [Openshift](https://www.openshift.com/).
 
-## Try it
-
-You can find it at [http://recipemd-dnlvgl.rhcloud.com/](http://recipemd-dnlvgl.rhcloud.com/)
-
-Because it is running on the free plan the application idles after 24 hours. If you get a Server Error just load the page again.
-
 ## Installation
 
 Local / hosted Installation:
